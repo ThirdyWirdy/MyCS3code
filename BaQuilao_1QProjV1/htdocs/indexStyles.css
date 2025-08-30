@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+} /*So the header and footer bg color fills their region without the body margins affecting it */
+
+
+table, th, td { /*table layout*/
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-left: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+h1, h2, h3, p { /*text layout*/
+    text-align: justify;
+}
+
+img {
+    max-width: 100%;
+    /*image scales with screen*/
+    height: auto;
+}
+
+.header { /*header layout*/
+    display: flex; /*flexbox for hoziontal element arrangement*/
+    padding: 10px;
+    background-color: lightgrey;
+    align-items: center; /*vertially centers elements in parent container*/
+}
+
+#webLogo { /*margins*/
+    margin-left: 5%;
+    margin-right: 20%;
+}
+
+.siteLinks { /*site link layout*/
+    flex-grow: 1; /*divides equal space to the links*/
+    text-align: center; /*centers elements in its container (div)*/
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.body {
+    display: flex /*flex layout to give a margin to center content*/
+}
+
+#leftMargin {
+    flex: 0 1 10%; /*Left margin which is 10% of the display*/
+}
+
+#main {
+    flex: 1 1 auto; /*Main content section*/
+}
+
+#rightMargin {
+    flex: 0 1 10%; /*Right margin which is 10% of the display*/
+}
+
+.bgProblem {
+    display: grid; /*grid display for horizontal element arrangement*/
+    grid-template-columns: 60% 40%;  /*percentage of space taken of each element*/
+    gap: 20px; /*gap between grid columns*/
+}
+
+.bgParagraph { /*margins*/
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#bgTable { 
+    size: 80%;
+    margin-right: auto;
+    margin-left: auto; /*aligns the table to the center*/
+}
+
+#tableTitle, #bgSources, #wbdTitle {
+    text-align: center;
+}
+
+.wbd {
+    display: grid; /*grid display for horizontal element arrangement*/
+    grid-template-columns: 40% 60%; /*percentage of space taken of each element*/
+    gap: 20px; /*gap between grid columns*/
+}
+
+#wbdImg, #wwciImg2 { /*img layout*/
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; /*centers image*/
+}
+
+.wwci { 
+    display: grid; /*grid display for horizontal element arrangement*/
+    grid-template-columns: 60% 40%; /*percentage of space taken of each element*/
+    gap: 10px; /*gap between grid columns*/
+}
+
+#callToAction { /*call to action button formatting*/
+    padding: 10px; 
+    border-color: rgb(125, 125, 125);
+    border-width: 3px;
+    border-style: solid;
+    background-color: rgb(125, 125, 125);
+    width: fit-content; /*so border wraps properly around the text*/
+    margin-left: auto;
+    margin-right: auto; /*centers button*/
+}
+
+.footer {
+    margin-top: 20px;
+    display: flex; /*flex for horizontal arrangement*/
+    padding: 10px;
+    background-color: lightgrey;
+    align-items: center;
+    /* vertically center*/
+}
+ 
+.footerContent { /*layout for footer content*/
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}

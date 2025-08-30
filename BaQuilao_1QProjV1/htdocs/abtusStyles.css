@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+} /*So the header and footer bg color fills their region without the body margins affecting it */
+
+h1, h2, h3, p {
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: justify;
+}
+
+img { 
+    max-width: 100%;
+    /*image scales with screen*/
+    height: auto;
+}
+
+.header { /*header layout*/
+    display: flex; /*flexbox for hoziontal element arrangement*/
+    padding: 10px;
+    background-color: lightgrey;
+    align-items: center; /*vertially centers elements in parent container*/
+}
+
+#webLogo { /*margins*/
+    margin-left: 5%;
+    margin-right: 20%;
+}
+
+.siteLinks { /*site link layout*/
+    flex-grow: 1; /*divides equal space to the links*/
+    text-align: center; /*centers elements in its container (div)*/
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.body {
+    display: flex /*flex layout to give a margin to center content*/
+}
+
+#leftMargin {
+    flex: 0 1 10%; /*Left margin which is 10% of the display*/
+}
+
+#main {
+    flex: 1 1 auto; /*Main content section*/
+}
+
+#rightMargin {
+    flex: 0 1 10%; /*Right margin which is 10% of the display*/
+}
+
+#abtusTitle {
+    text-align: center; 
+}
+
+#img1, #img2 { /*img layout*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /*centers image*/
+    max-height: 300px;
+}
+
+.aboutOrg { /*margins*/
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.aboutFounder {
+    display: grid; /*grid display for horizontal element arrangement*/
+    grid-template-columns: 70% 30%; /*percentage of space taken of each element*/
+    gap: 20px; /*gap between grid columns*/
+    margin-top: 50px;
+    margin-bottom: 50px; /*margins*/
+}
+
+.bottomPart {
+    display: grid; /*grid display for horizontal element arrangement*/
+    grid-template-columns: 50% 50%; /*percentage of space taken of each element*/
+    gap: 20px; /*gap between grid columns*/
+    margin-top: 50px;
+    margin-bottom: 100px; /*margins*/
+}
+
+#relatedSites, #contactUs {
+    text-align: center;
+}
+
+.contactInfo {
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 20px;
+    display: flex; /*flex for horizontal arrangement*/
+    padding: 10px;
+    background-color: lightgrey;
+    align-items: center;
+    /* vertically center*/
+}
+
+.footerContent { /*layout for footer content*/
+    text-align: center; 
+    margin-left: 10px;
+    margin-right: 10px;
+}
