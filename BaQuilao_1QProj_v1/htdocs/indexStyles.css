@@ -47,7 +47,7 @@ img {
     text-decoration: none;
 }
 .navLinks:hover, .navLinks:active {
-    color: dark gray;
+    color: blue;
     text-decoration: none;
 }
 
@@ -132,3 +132,4 @@ img {
     margin-right: 10px;
 
 }
+
