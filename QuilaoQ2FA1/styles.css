@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: rgb(207, 237, 226);
+    text-align: justify;
+}
+
+#wrapper {
+    width: 60%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+nav {
+    float: right;
+    width: 30%;
+    background-color: #96eccc;
+    margin: 0 15px 15px;
+    padding: 10px;
+}
+
+nav a:link, aside a:link {
+    color: rgb(13, 162, 118);
+    text-decoration: none;
+}
+
+nav a:visited, aside a:visited {
+    color: rgb(22, 183, 195);
+    text-decoration: none;
+}
+
+nav a:hover, nav a:active, aside a:hover, aside a:active {
+    color: rgb(204, 166, 90);
+    text-decoration: underline;
+}
+
+main, aside {
+    padding: 0 20px 0;
+}
+
+header {
+    background-color: #4fe4b5;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#tagline {
+    font-style: italic;
+}
+
+footer {
+    background-color: #4fe4b5;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
