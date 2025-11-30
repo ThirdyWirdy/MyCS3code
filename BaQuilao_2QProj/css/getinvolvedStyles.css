@@ -1,0 +1,318 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'tahoma', sans-serif;
+    background-color: #012f51;
+}
+
+/*So the header and footer bg color fills their region without the body margins affecting it */
+
+h1,
+h2,
+h3,
+p {
+    /*text layout*/
+    text-align: justify;
+}
+
+h1,
+h2,
+h3 {
+    color: #012f51;
+}
+
+img {
+    max-width: 100%;
+    /*image scales with screen*/
+    height: auto;
+}
+
+header {
+    /*header layout*/
+    padding: 10px;
+    background-color: lightgrey;
+
+}
+
+nav {
+    display: flex;
+    /*flexbox for hoziontal element arrangement*/
+    align-items: center;
+    /*vertially centers elements in parent container*/
+}
+
+#webLogo {
+    /*margins*/
+    margin-left: 5%;
+    margin-right: 20%;
+}
+
+.siteLinks {
+    /*site link layout*/
+    flex-grow: 1;
+    /*divides equal space to the links*/
+    text-align: center;
+    /*centers elements in its container (div)*/
+    font-size: 20px;
+}
+
+.navLinks:link,
+.navLinks:visited {
+    color: black;
+    text-decoration: none;
+    /*hyperlink formatting*/
+}
+
+.navLinks:hover,
+.navLinks:active {
+    color: blue;
+    text-decoration: none;
+    /*hyperlink formatting*/
+}
+
+main {
+    margin: 0 4%;
+    background-color: white;
+    display: block;
+    overflow: auto;
+    padding: 0 5%;
+}
+
+main p {
+    font-size: 1.2rem;
+}
+
+/* make images safe for responsive wrapping */
+main img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid lightgrey;
+}
+
+#Title {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#getinvolved {
+    padding: 0 20px;
+    display: grid;
+    /*grid for horizontal arrangement*/
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    /*centers the content horizontally*/
+    gap: 50px;
+    margin: 70px 0px;
+}
+
+#getinvolved h2 {
+    text-align: center;
+}
+
+#getinvolved p {
+    font-size: 1.15rem;
+}
+
+.wayToHelp {
+    display: flex;
+    /*flex layout for vertical arrangement*/
+    flex-direction: column;
+    align-items: center;
+    /* centers all elements horizontally */
+    text-align: center;
+    /* centers text inside elements */
+    padding: 20px;
+    gap: 15px;
+    transition: transform 0.3s, background-color 0.3s;
+    /*for smooth transitions*/
+}
+
+.wayToHelp:hover {
+    transform: scale(1.05);
+    /*slight zoom effect on hover*/
+    background-color: lightgray;
+    /*transitions background color to gray when hovered*/
+    animation: tilt 2s infinite ease-in-out;
+    /*tilt animation using rotate transformations*/
+}
+
+@keyframes tilt {
+
+    /*tilt animation keyframes*/
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-2deg);
+        /*tilt left*/
+    }
+
+    50% {
+        transform: rotate(0deg);
+        /*back to center*/
+    }
+
+    75% {
+        transform: rotate(2deg);
+        /*tilt right*/
+    }
+
+    100% {
+        transform: rotate(0deg);
+        /*back to center*/
+    }
+}
+
+
+.redirectButton {
+    /*redirect button formatting*/
+    padding: 10px;
+    border: 3px solid #012f51;
+    background-color: #012f51;
+    color: white;
+    width: fit-content;
+    /*so border wraps properly around the text*/
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    /*hyperlink formatting*/
+}
+
+.bottomPart {
+    display: grid;
+    /*grid display for horizontal element arrangement*/
+    grid-template-columns: 50% 50%;
+    /*percentage of space taken of each element*/
+    gap: 20px;
+    /*gap between grid columns*/
+    margin-top: 70px;
+    margin-bottom: 40px;
+    /*margins*/
+}
+
+.bDivTitles {
+    /*formatting for the bottom section (contact us & share this)*/
+    padding: 30px 50px;
+    border: 3px solid #012f51;
+    background-color: lightgrey;
+    color: black;
+    border-radius: 12px;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contactUsRedirect p {
+    font-size: 1rem;
+}
+
+.contactInfo {
+    font-weight: bold;
+}
+
+#iconLinks {
+    width: 50%;
+    padding: 0px;
+    margin: auto;
+    list-style-type: none;
+    display: grid;
+    /*grid display for horizontal element arrangement*/
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /*percentage of space taken of each element*/
+    justify-items: center;
+    gap: 5px;
+}
+
+#iconLinks a {
+    display: block;
+    /*so hyperlinks have height and width*/
+    width: 50px;
+    height: 50px;
+    /*so the clickable area encompasses the area of the sprite*/
+    color: white;
+}
+
+#link1 {
+    background: url('../images/socmedSprite.jpg') no-repeat -35px -162px;
+    background-size: 313px 313px;
+    width: 51px;
+    height: 51px;
+    /*making the sprite*/
+}
+
+#link2 {
+    background: url('../images/socmedSprite.jpg') no-repeat -99px -228px;
+    background-size: 313px 313px;
+    width: 51px;
+    height: 50px;
+    /*making the sprite*/
+}
+
+#link3 {
+    background: url('../images/socmedSprite.jpg') no-repeat -98px -163px;
+    background-size: 313px 313px;
+    width: 52px;
+    height: 50px;
+    /*making the sprite*/
+}
+
+#link4 {
+    background: url('../images/socmedSprite.jpg') no-repeat -164px -35px;
+    background-size: 313px 313px;
+    width: 50px;
+    height: 50px;
+    /*making the sprite*/
+}
+
+/*When you hover over them, an outline appears*/
+#link1:hover {
+    outline: 2px solid blue;
+}
+
+#link2:hover {
+    outline: 2px solid red;
+}
+
+#link3:hover {
+    outline: 2px solid blueviolet;
+}
+
+#link4:hover {
+    outline: 2px solid black;
+}
+
+.references p,
+.references li {
+    font-size: 1rem;
+}
+
+footer {
+    display: flex;
+    /*flex for horizontal arrangement*/
+    padding: 10px;
+    background-color: lightgrey;
+    align-items: center;
+    /* vertically center*/
+}
+
+.footerContent {
+    /*layout for footer content*/
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.footerContent a:link,
+.footerContent a:visited {
+    /*hyperlink formatting v2*/
+    color: black;
+    text-decoration: none;
+}
+
+.footerContent a:hover,
+.footerContent a:active {
+    color: blue;
+    text-decoration: none;
+}
