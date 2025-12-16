@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS3 JS Exercise</title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        header,
+        section,
+        footer {
+            padding: 20px;
+        }
+
+        header,
+        footer {
+            height: 100px;
+            background-color: lightgray;
+        }
+
+        section {
+            height: 400px;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the CS3 JavaScript Exercise Page</h1>
+    </header>
+    <section>
+        <button onclick="highlightHeader()">Highlight Header</button>
+        <button onclick="highlightFooter()">Highlight Footer</button>
+        <button onclick="clearHighlight()">Clear Highlight</button>
+
+        <p id="day">test</p><br><br>
+
+        <input type="text" id="sum1" name="sum1">
+        <input type="text" id="sum2" name="sum2">
+        <button onclick="getSum()">Get Sum</button>
+
+        <p id="resultSum"></p>
+
+    </section>
+    <footer>
+    </footer>
+
+    <script>
+        function setBg(tag, color) {
+            const el = document.getElementsByTagName(tag)[0];
+            el.style.backgroundColor = color;
+        }
+
+        function highlightHeader() { setBg('header', 'lightgreen'); }
+        function highlightFooter() { setBg('footer', 'green'); }
+
+        function clearHighlight() {
+            setBg('header', 'lightgray');
+            setBg('footer', 'lightgray');
+        }
+
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        const d = new Date();
+        let day = days[d.getDay()];
+        document.getElementById("day").innerHTML = "Today is a " + day + "!";
+
+        function getSum() {
+            let sum1 = parseFloat(document.getElementById("sum1").value);
+            let sum2 = parseFloat(document.getElementById("sum2").value);
+
+            if (isNaN(sum1) || isNaN(sum2)) {
+                document.getElementById("resultSum").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            let result = sum1 + sum2;
+            document.getElementById("resultSum").innerHTML = "The sum of " + sum1 + " and " + sum2 + " is " + result + ".";
+        }
+    </script>
+</body>
+
+</html>
