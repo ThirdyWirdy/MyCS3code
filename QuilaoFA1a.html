@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Welcome to my simple calculator page!</h2>
+    <p id="numbers"></p>
+    <p id="result"></p>
+    <script>
+        // Step 1: Get two numbers using prompt
+        let num1 = Number(prompt("Enter the first number:"));
+        let num2 = Number(prompt("Enter the second number:"));
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("Please enter valid numbers!");
+            location.reload(); // Refresh page to retry
+        }
+        // Step 2: Perform operations
+        let sum = num1 + num2;
+        let difference = num1 - num2;
+        let product = num1 * num2;
+        // Step 3: Display numbers and results using document.write()
+        // Display the numbers
+        document.write("Numbers: " + num1 + " and " + num2);
+        document.write("<br>");
+        // Display the sum
+        document.write("Sum: " + sum);
+        document.write("<br>");
+        document.write("Difference: " + difference);
+        document.write("<br>");
+        document.write("Product: " + product);
+        document.write("<br>");
+        // Step 4: Display results using innerHTML
+        // Display the numbers
+        document.getElementById("numbers").innerHTML =
+            "Numbers: " + num1 + " and " + num2 + "<br>";
+        // Display the sum
+        document.getElementById("result").innerHTML =
+            "Sum: " + sum + "<br>" +
+            "Difference: " + difference + "<br>" +
+            "Product: " + product + "<br>";
+    </script>
+</body>
+
+</html>
