@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quilao JS Practice Exercise</title>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px 10%;
+        }
+
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 30px 0px;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body onload="greeting()">
+    <header>
+        <h1>Quilao JS Practice Exercise</h1>
+    </header>
+
+    <p id="p1" onmouseover="p1MouseOver(); p3MouseOver()">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+        porttitor purus vitae turpis
+        auctor, imperdiet
+        fermentum arcu feugiat. Nam placerat vitae ligula eget bibendum. Pellentesque habitant morbi tristique senectus
+        et netus et malesuada fames ac turpis egestas. Sed sagittis, leo ut faucibus aliquet, quam metus cursus velit,
+        ut iaculis dolor leo at metus. Donec vitae diam purus. Morbi commodo, sapien in varius hendrerit, nibh orci
+        molestie nibh, eu cursus elit tortor vel arcu. Curabitur mattis ac enim vitae consequat.</p>
+
+    <p id="p2" ondblclick="p2DblClick()">Curabitur vitae feugiat metus. Maecenas consequat turpis metus, vel interdum
+        nulla feugiat non. Nunc
+        viverra
+        vehicula sem a viverra. Morbi id facilisis sem, quis mollis augue. Aenean at arcu accumsan, molestie orci sit
+        amet, elementum nisl. Quisque vel semper felis. Pellentesque sagittis neque diam, at volutpat dolor semper
+        vitae. Quisque venenatis nisl tortor, in varius risus feugiat vitae. Integer ullamcorper, justo ac sodales
+        tempus, nulla risus interdum arcu, sed suscipit tortor est id ante. Aliquam nibh ante, eleifend id finibus
+        suscipit, egestas ut ipsum. Duis finibus eros vel ullamcorper dictum. Nulla et vestibulum enim. Donec nulla
+        urna, varius eget orci vel, dictum imperdiet metus. Ut in convallis lectus, non tempus diam.</p>
+
+    <p id="p3">Maecenas consequat dolor nibh, sed congue ligula gravida quis. Nam sit amet diam dolor. Curabitur sit
+        amet
+        ultrices nibh. Quisque consectetur sed ante ac venenatis. Nunc at ligula consequat, lacinia dolor vel, gravida
+        elit. Phasellus dignissim neque id arcu venenatis, non vehicula est pellentesque. Pellentesque quis facilisis
+        ipsum. Fusce at magna pellentesque dui convallis fermentum. Cras at dolor id urna laoreet gravida non quis
+        turpis. Phasellus quis purus vel est mattis cursus in id mi. Cras in lobortis magna.</p>
+
+    <p id="p4" onmouseout="p4MouseOut()">Nulla volutpat, quam at vehicula tristique, eros lectus egestas orci, quis
+        mollis justo ipsum quis odio.
+        Donec
+        eget nisi ac neque gravida facilisis. Nam mollis gravida lorem ut sagittis. Quisque rutrum sollicitudin est,
+        tincidunt rhoncus lacus venenatis eu. Suspendisse erat magna, lobortis nec odio ut, gravida auctor libero.
+        Aenean pretium dictum ex a blandit. Nullam enim ante, accumsan sit amet varius nec, facilisis varius ante. Donec
+        nisi eros, eleifend nec vestibulum id, lacinia ac arcu. Proin lobortis neque non erat ultricies accumsan.
+        Integer interdum ullamcorper magna eu scelerisque. Quisque in mollis arcu. Pellentesque convallis sapien at nisl
+        eleifend, vitae iaculis tortor rhoncus. Curabitur sodales ipsum eget lacinia varius.</p>
+
+    <script>
+        function greeting() {
+            alert('Welcome to my page!');
+        }
+
+        function p1MouseOver() {
+            document.getElementById('p1').style.backgroundColor = 'lightyellow';
+        }
+
+        function p3MouseOver() {
+            document.getElementById('p3').style.backgroundColor = 'lightgreen';
+        }
+
+        function p2DblClick() {
+            alert('You double clicked the second paragraph!');
+        }
+
+        function p4MouseOut() {
+            let num1 = 1 + Math.floor(Math.random() * 100);
+            let num2 = 1 + Math.floor(Math.random() * 100);
+
+            let ansKey = num1 * num2;
+
+            let answerString = prompt('Don\'t leave me!\nIf you really want to go, solve this equation:\n' + num1 + ' x ' + num2 + ' = ');
+            let userAnswer = parseInt(answerString);
+
+            if (userAnswer == ansKey) {
+                alert('Correct! You may leave.');
+            } else {
+                document.write('Wrong answer >:O');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
