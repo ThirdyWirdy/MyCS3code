@@ -9,7 +9,7 @@ document.getElementById('line3').innerHTML = 'ceil() of ' + num1 + " / " + num2 
 document.getElementById('line4').innerHTML = 'floor() of ' + num1 + " / " + num2 + ' is ' + Math.floor(quo) + '.';
 
 function letterAsk() {
-    var word = "Scripted";
+    var word = "scripted";
     let letter = prompt('Enter a letter:');
     let searchL;
 
@@ -36,4 +36,5 @@ function letterAsk() {
 function sayName() {
     let name = prompt("What is your name?");
     document.getElementById('nameResult').innerHTML = "Your name is " + name.toUpperCase() + ".";
+
 }
