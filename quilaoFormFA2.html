@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+</head>
+
+<body>
+    <h3>Order Form</h3><br>
+    <form onsubmit="printReceipt(); return false;"> <!-- Html form -->
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName"><br> <!-- Input field for full name -->
+        <label for="gradeSection">Grade & Section</label>
+        <input type="text" id="gradeSection"><br><br> <!-- Input field for grade and section -->
+
+        <label for="order">Food:</label> <!-- Dropdown menu for food selection -->
+        <select id="order">
+            <option value="A">Chicken Meal (PHP 75)</option>
+            <option value="B">Pork Meal (PHP 85)</option>
+            <option value="C">Beef Meal (PHP 105)</option>
+        </select><br>
+        <label for="quantity">Quantity (Max of 5):</label> <!-- Input field for quantity -->
+        <input type="number" id="quantity" min="1" max="5"><br><br>
+
+        <label for="custType">Customer Type</label><br> <!-- Dropdown menu for customer type selection -->
+        <select id="custType">
+            <option value="student">Student</option>
+            <option value="faculty">Faculty/Staff</option>
+        </select><br><br>
+
+        <input type="submit" value="Place Order"> <!-- Submit button to place the order -->
+    </form>
+
+    <h3>ORDER SUMMARY</h3>
+    <p id="receipt"></p> <!-- Paragraph element to display the order summary/receipt -->
+
+    <script>
+
+        function calculateSubTotal(order, quantity) { //Function to calculate the subtotal based on the selected order and quantity
+            let price;
+
+            switch (order) { //Switch statement to determine the price based on the selected order
+                case "A":
+                    price = 75;
+                    break;
+                case "B":
+                    price = 85;
+                    break;
+                case "C":
+                    price = 105;
+                    break;
+                default:
+                    price = 0;
+            }
+            return price * quantity; //Return the calculated subtotal by multiplying the price with the quantity
+        }
+
+        function calculateDiscount(subTotal, custType) { //Function to calculate the discount based on the subtotal and customer type
+            let discountRate;
+            if (custType === "student") {
+                discountRate = 0.20; // 20% discount for students
+            } else {
+                discountRate = 0;
+            }
+
+            return subTotal * discountRate; //Return the calculated discount by multiplying the subtotal with the discount rate
+        }
+
+        function printReceipt() { //Function to generate and display the receipt based on the form inputs
+            let fullName = document.getElementById("fullName").value;
+            let gradeSection = document.getElementById("gradeSection").value;
+            let order;
+            let price = document.getElementById("order").value;
+            let quantity = parseInt(document.getElementById("quantity").value);
+            let custType = document.getElementById("custType").value;
+            //get filled out user inputs from the form and store them in variables
+
+            switch (document.getElementById("order").value) { //Switch statement to determine the order description based on the selected order
+                case "A":
+                    order = "Chicken Meal (PHP 75)";
+                    break;
+                case "B":
+                    order = "Pork Meal (PHP 85)";
+                    break;
+                case "C":
+                    order = "Beef Meal (PHP 105)";
+                    break;
+            }
+
+
+            if (!fullName || !gradeSection) { //Validation to check if the full name and grade & section fields are filled out
+                alert("Please fill out all fields correctly!");
+            }
+
+            let subTotal = calculateSubTotal(price, quantity); //Calculate the subtotal by calling the calculateSubTotal function
+            let discount = calculateDiscount(subTotal, custType); //Calculate the discount by calling the calculateDiscount function
+            let total = subTotal - discount; //Calculate the total by subtracting the discount from the subtotal
+
+            let receiptText = `Name: ${fullName}<br>Grade & Section: ${gradeSection}<br>Order: ${order}<br>Quantity: ${quantity}<br>Subtotal: PHP ${subTotal.toFixed(2)}<br>Discount: PHP ${discount.toFixed(2)}<br>Total: PHP ${total.toFixed(2)}<br><br>Thank you for your patronage!`;
+            //Generate the receipt text using template literals to include the order details and calculations
+            document.getElementById("receipt").innerHTML = receiptText; //Display the generated receipt text in the paragraph element with id "receipt"
+
+            return false; //Return false to prevent the form from submitting and refreshing the page
+        }
+    </script>
+</body>
+
+</html>
