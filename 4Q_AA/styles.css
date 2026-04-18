@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'tahoma', sans-serif;
+    background-color: #012f51;
+}
+
+/*So the header and footer bg color fills their region without the body margins affecting it */
+
+h1,
+h2,
+h3,
+p {
+    /*text layout*/
+    text-align: justify;
+}
+
+h1,
+h2,
+h3 {
+    color: #012f51;
+}
+
+img {
+    max-width: 100%;
+    /*image scales with screen*/
+    height: auto;
+}
+
+header {
+    /*header layout*/
+    padding: 10px;
+    background-color: lightgrey;
+
+}
+
+nav {
+    display: flex;
+    /*flexbox for hoziontal element arrangement*/
+    align-items: center;
+    /*vertially centers elements in parent container*/
+}
+
+#webLogo {
+    /*margins*/
+    margin-left: 5%;
+    margin-right: 20%;
+}
+
+.siteLinks {
+    /*site link layout*/
+    flex-grow: 1;
+    /*divides equal space to the links*/
+    text-align: center;
+    /*centers elements in its container (div)*/
+    font-size: 20px;
+}
+
+.navLinks:link,
+.navLinks:visited {
+    color: black;
+    text-decoration: none;
+    /*hyperlink formatting*/
+}
+
+.navLinks:hover,
+.navLinks:active {
+    color: blue;
+    text-decoration: none;
+    /*hyperlink formatting*/
+}
+
+main {
+    margin: 0 4%;
+    background-color: white;
+    display: block;
+    overflow: auto;
+    padding: 0 5%;
+}
+
+section {
+    font-size: 1.1rem;
+}
+
+h3 {
+    text-align: center;
+}
+
+span {
+    font-size: 0.8rem;
+    color: red;
+}
+
+#success {
+    color: green;
+    font-size: 1rem;
+}
+
+
+#Title {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    /* Two equal columns */
+    width: 60%;
+    /* Fixed width */
+    margin: 20px auto;
+    /*center form horizontally with margin*/
+    gap: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #cdecff;
+}
+
+#personalInfo,
+#survey {
+    grid-row: span 3 / span 3;
+}
+
+#submit {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input[type="submit"] {
+    background-color: #012f51;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    /*flex for horizontal arrangement*/
+    padding: 10px;
+    background-color: lightgrey;
+    align-items: center;
+    /* vertically center*/
+}
+
+.footerContent {
+    /*layout for footer content*/
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.footerContent a:link,
+.footerContent a:visited {
+    /*hyperlink formatting v2*/
+    color: black;
+    text-decoration: none;
+}
+
+.footerContent a:hover,
+.footerContent a:active {
+    color: blue;
+    text-decoration: none;
+}
