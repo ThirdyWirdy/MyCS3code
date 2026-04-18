@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Log in/Sign up</h2>
+
+    <!--Add span for validation(error message)-->
+    <form onsubmit="return validateForm()"> <!-- Html form -->
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName"> <span id="nameError"></span><br>
+
+        <label for="birthDate">Birth Date:</label><br>
+        <input type="date" id="birthDate" name="birthDate"> <span id="birthDateError"></span><br>
+
+        <p>Sex: <span id="sexError"></span></p>
+        <input type="radio" id="male" name="sex">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="sex">
+        <label for="female">Female</label><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"> <span id="emailError"></span><br><br>
+
+        <label for="userName">Username:</label><br>
+        <input type="text" id="userName" name="userName"> <span id="userNameError"></span><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"> <span id="passwordError"></span><br>
+
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" id="confirmPw" name="confirmPw"> <span id="confirmPwError"></span><br><br>
+
+        <h3>Survey Questions</h3>
+
+        <p>What acts of kindness have you done? Pick all that apply <span id="q1Error"></span></p>
+        <input type="checkbox" id="q1Ans1" name="q1" value="q1A">
+        <label for="q1A">Helped someone in need</label><br>
+        <input type="checkbox" id="q1Ans2" name="q1" value="q1B">
+        <label for="q1B">Volunteered at a charity</label><br>
+        <input type="checkbox" id="q1Ans3" name="q1" value="q1C">
+        <label for="q1C">Donated to a cause</label><br><br>
+
+        <p>How often do you volunteer or donate to charity? <span id="q2Error"></span></p>
+        <input type="radio" id="q2Ans1" name="q2" value="q2A">
+        <label for="q2A">Never</label><br>
+        <input type="radio" id="q2Ans2" name="q2" value="q2B">
+        <label for="q2B">Once a year</label><br>
+        <input type="radio" id="q2Ans3" name="q2" value="q2C">
+        <label for="q2C">More than once a year</label><br>
+        <input type="radio" id="q2Ans4" name="q2" value="q2D">
+        <label for="q2D">Once a month</label><br>
+        <input type="radio" id="q2Ans5" name="q2" value="q2E">
+        <label for="q2E">More than once a month</label><br><br><br>
+
+        <label for="q3">How much are you willing to pay to support our cause?</label><br>
+        <select id="q3">
+            <option value="q3A">None</option>
+            <option value="q3B">0-10$</option>
+            <option value="q3C">10$-100$</option>
+            <option value="q3D">100$-1000$</option>
+            <option value="q3E">More than 1000$</option>
+        </select><br><br>
+
+
+
+        <input type="submit" value="Submit and join educacy!"> <span id="success"></span>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
