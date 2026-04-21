@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pre-Order Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        select {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        #terms {
+            width: 10%;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            margin-top: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+            min-height: 18px;
+        }
+
+        #description {
+            font-size: 14px;
+            color: #555;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body onload="redirect()">
+
+    <div class="container">
+        <h2>Science Project Pre-Order</h2>
+        <h3 id="description">This DIY Solar-Powered Car Kit is perfect for hands-on science experiments, and teaching
+            renewable energy
+            concepts in a fun and interactive way. It's easy to assemble, and it helps students explore mechanics,
+            engineering,
+            and sustainability. Great for classrooms, science fairs, or personal projects!</h3>
+
+        <!-- Error Message Area -->
+        <div id="errorMsg" class="error"></div>
+
+        <form onsubmit="return handleOrder()">
+
+            <label>Name:</label>
+            <input type="text" id="name">
+
+            <label>Product:</label>
+            <select id="variant">
+                <option value="">Select</option>
+                <option value="stdSize">Standard Size Kit (₱450)</option>
+                <option value="largeSize">Large Size Kit (₱750)</option>
+            </select>
+
+            <label>Quantity:</label>
+            <input type="number" id="quantity">
+
+            <label>Pickup Method:</label>
+            <select id="pickup">
+                <option value="">Select</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Meetup">Meetup</option>
+            </select>
+
+            <label>Address (for delivery only):</label>
+            <input type="text" id="address">
+
+            <label>
+                <input type="checkbox" id="terms"> I accept terms
+            </label>
+            <br><br>
+
+            <button type="button" onclick="loadPreviousOrder()">Load Previous Order</button>
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+    <script>
+        // COOKIE FUNCTIONS
+        function setCookie(name, value, maxAge) {
+            let cookieStr = name + "=" + value + ";";
+            if (maxAge > -1) {
+                cookieStr += " max-age=" + maxAge + ";";
+            }
+            document.cookie = cookieStr;
+        }
+
+        function getCookie(name) {
+            let cName = name + "=";
+            let cookies = document.cookie.split(";");
+
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i];
+
+                // remove leading space
+                if (cookie.charAt(0) == " ") {
+                    cookie = cookie.substring(1);
+                }
+
+                // match key
+                if (cookie.indexOf(name) == 0) {
+                    // return the substring of only the value of the cookie
+                    return cookie.substring(cName.length);
+                }
+            }
+
+            return null;
+        }
+
+        function setLocal(key, value) {
+            localStorage.setItem(key, value);
+        }
+
+        // MAIN SUBMIT HANDLER
+        function handleOrder() {
+            document.getElementById("errorMsg").innerHTML = "";
+
+            //Get values
+            let name = document.getElementById("name").value;
+            let variant = document.getElementById("variant").value;
+            let quantity = document.getElementById("quantity").value;
+            let pickup = document.getElementById("pickup").value;
+            let address = document.getElementById("address").value;
+            let terms = document.getElementById("terms").checked;
+            let order = true;
+            let maxAge = 604800; // 1 week in seconds
+
+            document.getElementById("errorMsg").innerHTML = "";
+            //Validation
+            if (!name || !variant || !quantity || !pickup) {
+                document.getElementById("errorMsg").innerHTML = "All fields must not be empty.";
+                order = false;
+            }
+            if (quantity <= 0) {
+                document.getElementById("errorMsg").innerHTML += " Quantity must be greater than 0.";
+                order = false;
+            }
+            if (!terms) {
+                document.getElementById("errorMsg").innerHTML += " You must accept the terms and conditions.";
+                order = false;
+            }
+            if (pickup === "Delivery" && !address) {
+                document.getElementById("errorMsg").innerHTML += " Address is required for delivery.";
+                order = false;
+            }
+
+            if (order) {
+                setCookie("customerName", name, maxAge);
+                setLocal("product", variant);
+                setLocal("quantity", quantity);
+                setLocal("pickupMethod", pickup);
+                setLocal("address", address);
+                setLocal("order", order);
+            }
+            return order;
+        }
+
+        // LOAD PREVIOUS ORDER
+        function loadPreviousOrder() {
+            //Retrieve stored data
+            let customerName = getCookie("customerName");
+            let product = localStorage.getItem("product");
+            let quantity = localStorage.getItem("quantity");
+            let pickupMethod = localStorage.getItem("pickupMethod");
+            let address = localStorage.getItem("address");
+
+            if (!customerName && !product && !quantity && !pickupMethod && !address) {
+                document.getElementById("errorMsg").innerHTML = "No previous order data.";
+                return;
+            }
+            //If no data: Display error message "No previous order data"
+
+            //Populate fields
+            document.getElementById("name").value = customerName || "";
+            document.getElementById("variant").value = product || "";
+            document.getElementById("quantity").value = quantity || "";
+            document.getElementById("pickup").value = pickupMethod || "";
+            document.getElementById("address").value = address || "";
+        }
+
+        function redirect() {//redirect to summary if order successful
+            order = localStorage.getItem("order");
+            if (order) {
+                localStorage.removeItem("order");
+                window.location.href = "summary.html";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
